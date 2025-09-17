@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+
+  <!-- Link Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .title{
+      color: black;
+    }
+    .title:hover{
+      color: rgb(45, 45, 45);
+      text-decoration: none;
+    }
+    body {
+            font-family: Arial, sans-serif;
+            background-color: #f9e8d6;
+        }
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            background-color:white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .login-form {
+            width: 50%;
+            margin: 40px auto;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        button[type="submit"] {
+            width: 100%;
+            height: 40px;
+            background-color: brown;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: rgb(95, 11, 11);
+        }
+        p {
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: #2dafeb;
+        }
+        a:hover {
+            color: #2aa1d8;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 145px;
+        }
+
+        /* Animasi untuk alert */
+        .alert {
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* Durasi diperpanjang */
+            opacity: 0;
+            transform: translateY(-20px);
+            display: none; /* Sembunyikan secara default */
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            
+        }
+
+        .alert.show {
+            display: block; /* Tampilkan ketika show */
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            display: flex;
+            align-items: center;
+        }
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            display: flex;
+            align-items: center;
+        }
+        .alert svg {
+            margin-right: 10px; /* Jarak antara ikon dan teks */
+        }
+  </style>
+</head>
+<body style="font-family: 'Trebuchet MS', Arial, sans-serif; background-color: rgb(234, 222, 200); padding-top: 85px;">
+  <!-- Header -->
+  <header class="d-flex justify-content-between align-items-center p-3" style="background-color: #755A4A; color: #fff; position: fixed; top: 0; width: 100%; transition: top 0.5s ease; z-index: 1000;">
+    <a href="index.html" class="navbar-brand h1 mb-0 text-white" style="font-family: 'Great Vibes', cursive; font-size: 50px;">Vintagee.</a>
+    <nav>
+      <a href="products.html" class="text-white mx-2">Produk</a>
+      <a href="komunitass.html" class="text-white mx-2">Komunitas</a>
+      <a href="about_us.html" class="text-white mx-2">Tentang Kami</a>
+      <a href="blogs.html" class="text-white mx-2">Blog</a>
+      <a href="login.html" class="login-icon text-white mx-2"><i class="fas fa-user"></i></a>
+    </nav>
+  </header>
+<br>
+<body>
+    <div class="container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" placeholder="Username" id="username" required>
+                <input type="password" placeholder="Password" id="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="alert alert-success" id="success-alert" role="alert" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi flex-shrink-0 me-2" viewBox="0 0 16 16">
+                    <path d="M8 0a8 8 0 1 0 8 8A8 8 0 0 0 8 0zm3.354 5.646a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708l1.146 1.147 2.646-2.646a.5.5 0 0 1 .708 0z"/>
+                </svg>
+                Login berhasil! Selamat datang!
+            </div>
+            <div class="alert alert-danger" id="error-alert" role="alert" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi flex-shrink-0 me-2" viewBox="0 0 16 16">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+                Username atau password salah. Silahkan coba lagi.
+            </div>
+            <p>Don't have an account? <a href="sign_up.html">Sign up</a></p>
+        </div>
+    </div>
+    <!-- Footer -->
+  <footer class="bg-dark text-center text-white py-4">
+    <h1 class="h4 font-weight-bold">Retro & Vintage</h1>
+    <p>Vintagee menawarkan Anda barang-barang vintage dan retro melalui komunitas kami yang akan membawa Anda kembali ke masa lalu dengan penuh gaya.</p>
+  </footer>
+
+
+  <!-- Link Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Custom Script -->
+  <script>
+    let lastScrollPosition = 0;
+    const header = document.querySelector('header');
+    const headerHeight = header.offsetHeight;
+
+    window.addEventListener('scroll', () => {
+      let currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScrollPosition > lastScrollPosition) {
+        header.style.top = `-${headerHeight}px`;
+      } else {
+        header.style.top = '0';
+      }
+      
+      lastScrollPosition = currentScrollPosition <= 0 ? 0 : currentScrollPosition;
+    });
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+
+            const user = users.find(u => u.nama === username && u.password === password);
+
+            // Menyembunyikan semua alert terlebih dahulu
+            const successAlert = document.getElementById('success-alert');
+            const errorAlert = document.getElementById('error-alert');
+
+            successAlert.classList.remove('show');
+            errorAlert.classList.remove('show');
+            successAlert.style.display = 'none';
+            errorAlert.style.display = 'none';
+
+            // Set timeout untuk menyembunyikan alert sebelum menampilkan yang baru
+            setTimeout(() => {
+                if (user) {
+                    successAlert.classList.add('show');
+                    successAlert.style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                } else {
+                    errorAlert.classList.add('show');
+                    errorAlert.style.display = 'block';
+                }
+            }, 100);
+        });
+  </script>
+</body>
+</html>
+
