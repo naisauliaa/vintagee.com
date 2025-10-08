@@ -29,8 +29,6 @@ pipeline {
             steps {
                 script {
                     echo "Deploying the application..."
-                    // Tambahkan command deploy di sini, misalnya:
-                    // sh 'docker run -d -p 8080:8080 azeshion21/demo-app:jns-2.0'
                 }
             }
         }
