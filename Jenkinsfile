@@ -17,9 +17,9 @@ pipeline {
                 script {
                     echo "Building the Docker Image..."
                     withCredentials([usernamePassword(credentialsId: 'docker-hub-credential', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        sh 'docker build -t azeshion21/demo-app:jns-2.0 .'
+                        sh 'docker build -t naisauliaa/vintagee.com:jns-2.0 .'
                         sh 'echo "$PASS" | docker login -u "$USER" --password-stdin'
-                        sh 'docker push naisauliaa/demo-app:jns-2.0'
+                        sh 'docker push naisauliaa/vintagee.com:jns-2.0'
                     }
                 }
             }
