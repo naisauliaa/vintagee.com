@@ -1,22 +1,37 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'maven-3.9.11'
+    }
+
     stages {
-        stage('Build') {
+        stage('Build Jar') {
             steps {
-                echo 'Building the application...'
+                sh 'mvn package'
             }
         }
 
-        stage('Test') {
+        stage('Build Image') {
             steps {
-                echo 'Testing the application...'
+                script {
+                    echo "Building the Docker Image..."
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credential', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                        sh 'docker build -t azeshion21/demo-app:jns-2.0 .'
+                        sh 'echo "$PASS" | docker login -u "$USER" --password-stdin'
+                        sh 'docker push naisauliaa/demo-app:jns-2.0'
+                    }
+                }
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploying the application...'
+                script {
+                    echo "Deploying the application..."
+                    // Tambahkan command deploy di sini, misalnya:
+                    // sh 'docker run -d -p 8080:8080 azeshion21/demo-app:jns-2.0'
+                }
             }
         }
     }
