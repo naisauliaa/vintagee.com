@@ -1,5 +1,3 @@
-// Jenkinsfile Final yang sudah diperbaiki
-
 pipeline {
     agent any
 
@@ -17,7 +15,7 @@ pipeline {
         stage('Build Jar') {
             steps {
                 echo "Compiling the application..."
-                sh 'mvn package'
+                sh 'mvn clean package -DskipTests'
             }
         }
 
@@ -32,15 +30,15 @@ pipeline {
             steps {
                 script {
                     echo "Pushing the Docker Image to Docker Hub..."
-                    withCredentials([usernamePassword(credentialsId: env.DOCKER_HUB_CREDS, passwordVariable: 'PASS', usernameVariable: 'USER')]) {
-                        
-                        // =================================================================
-                        // == PASTIKAN PERINTAH 'sh' DI BAWAH INI ADALAH SATU BARIS TUNGGAL ==
-                        // =================================================================
-                        sh 'echo "$PASS" | docker login -u "$USER" --password-stdin'
-                        
-                        // Push image ke repository
-                        sh "docker push ${DOCKER_IMAGE_NAME}:${IMAGE_TAG}"
+                    withCredentials([usernamePassword(
+                        credentialsId: env.DOCKER_HUB_CREDS, 
+                        usernameVariable: 'USER', 
+                        passwordVariable: 'PASS'
+                    )]) {
+                        sh '''
+                            echo $PASS | docker login -u $USER --password-stdin
+                            docker push ${DOCKER_IMAGE_NAME}:${IMAGE_TAG}
+                        '''
                     }
                 }
             }
@@ -50,7 +48,7 @@ pipeline {
     post {
         always {
             echo "Logging out from Docker Hub..."
-            sh 'docker logout'
+            sh 'docker logout || true'
         }
     }
 }
