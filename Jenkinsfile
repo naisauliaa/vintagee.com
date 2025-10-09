@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE_NAME = "naisaauliaa/vintagee-app"
-        IMAGE_TAG         = "jns-1.1"
+        IMAGE_TAG         = "jns-2.0"
         DOCKER_HUB_CREDS  = "docker-hub-repo" 
     }
 
