@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunitas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="bg-dark text-white py-3">
+        <h1 class="text-center">Komunitas</h1>
+    </header>
+    <main class="container py-5 d-flex justify-content-center align-items-center">
+        <section class="community-container bg-white p-3 mb-3 shadow-sm col-md-8">
+            <h2 class="text-center">Bergabung dengan Komunitas Kami!</h2>
+            <div class="community-feed p-3">
+                <!-- feed komunitas ditampilin di sini -->
+            </div>
+            <div class="community-sidebar p-3 border-left">
+                <h3 class="mb-3">Kategori Komunitas</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-dark">Uang Kuno</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark">Barang Antik</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark">Filateli</a></li>
+                </ul>
+                <h3 class="mb-3">Kontributor Teratas</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-decoration-none text-dark">User   1</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark">User   2</a></li>
+                    <li><a href="#" class="text-decoration-none text-dark">User   3</a></li>
+                </ul>
+            </div>
+            <div class="community-create-post p-3 border-top">
+                <h3 class="mb-3">Buat Postingan Baru</h3>
+                <form>
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Judul:</label>
+                        <input type="text" id="title" name="title" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Isi:</label>
+                        <textarea id="content" name="content" class="form-control"></textarea>
+                    </div>
+                    <button id="submit-btn" class="btn btn-primary">Kirim Postingan</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

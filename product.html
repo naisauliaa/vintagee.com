@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Produk</title>
+    <style>
+        /* Global Styles */
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+          line-height: 1.6;
+          color: #333;
+          background-color: #f9e8d6;
+        }
+
+        #hero {
+          background-image: linear-gradient(to bottom,  #f7f7f7, #f9e8d6);
+          background-size: 100% 200px;
+          background-repeat: no-repeat;
+          background-position: 0% 0%;
+          background-attachment: scroll;
+          transition: background-position 0.5s ease-out;
+          padding: 2em;
+          text-align: center;
+        }
+
+        #hero:hover {
+          background-position: 100% 300%;
+        }
+
+        #hero h1 {
+          font-size: 36px;
+          margin-top: 0;
+        }
+
+        #hero p {
+          font-size: 18px;
+          color: #605f5f;
+        }
+
+        form {
+          margin-top: 20px;
+        }
+
+        #search-input {
+          padding: 10px;
+          border: none;
+          border-radius: 10px;
+          width: 300px;
+        }
+
+        button[type="cari"] {
+          background-color: #333;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+
+        button[type="cari"]:hover {
+          background-color: #444;
+        }
+
+        .kontainer {
+          background-color: #fff;
+          padding: 20px;
+          border: 1px solid #ddd;
+          border-radius: 7px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          width: 300px;
+          height: 400px;
+          margin: 20px auto;
+          display: inline-block;
+          vertical-align: top;
+          margin: 10px;
+        }
+
+        .kontainer h2 {
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+          margin: center;
+        }
+
+        .kontainer p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .kontainer button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 9px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .kontainer button:hover {
+            background-color: #444;
+        }
+
+        #produk {
+          padding: 2em;
+        }
+
+        #produk ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        #produk li {
+          margin: 20px;
+          text-align: center;
+        }
+
+        #produk img {
+          width: 100px;
+          height: 100px;
+          border-radius: 10px;
+          margin-bottom: 10px;
+        }
+
+        #produk h3 {
+          margin-top: 0;
+        }
+
+        #produk p {
+          font-size: 0.9em;
+          color: #666;
+        }
+
+        #produk button {
+          background-color: #333;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+
+        #produk button:hover {
+          background-color: #444;
+        }
+
+        /* Styles untuk Keranjang */
+        #cart-modal {
+          position: fixed;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: rgba(0, 0, 0, 0.5);
+          display: none;
+          justify-content: center;
+          align-items: center;
+        }
+
+        #cart-modal h2 {
+          margin-top: 0;
+        }
+
+        #cart-modal ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        #cart-modal button {
+          background-color: #333;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+
+        #cart-modal button:hover {
+          background-color: #444;
+        }
+
+        .cart-summary {
+          margin-top: 20px;
+          text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section id="hero">
+        <h1>Produk</h1>
+        <p>"Vintage dengan jiwa muda"</p>
+        
+        <form>
+            <input type="search" id="search-input" placeholder="Cari barang...">
+            <button type="cari">
+                <i class="fas fa-search"></i>
+                Cari
+            </button>
+        </form>
+    </section>
+
+    <section id="kategori">
+        <h2>Kategori Produk</h2>
+        <div class="kontainer">
+            <h3 align="center">Pakaian dan Aksesoris</h3>
+            <img src="pakaian dan aksesoris.jpeg" alt="pakaian dan aksesoris" height="200" width="255">
+            <p>Lengkapi penampilanmu dengan pakaian dan aksesoris vintage terbaik.</p>
+            <button type="button">Lebih Lanjut</button>
+        </div>
+        <div class="kontainer">
+            <h3 align="center">Perabotan</h3>
+            <img src="perabotan 2.jpeg" alt="perabotan" height="200" width="255">
+            <p>Percantik rumah anda dengan perabotan vintage berkualitas.</p>
+            <button type="button">Lebih Lanjut</button>
+        </div>
+        <div class="kontainer">
+            <h3 align="center">Koleksi Musik</h3>
+            <img src="koleksi musik.jpeg" alt="koleksi musik" height="200" width="255">
+            <p>Lengkapi peralatan musik anda dengan koleksi-koleksi terbaik.</p>
+            <button type="button">Lebih Lanjut</button>
+        </div>
+        <div class="kontainer">
+            <h3 align="center">Koleksi Elektronik</h3>
+            <img src="koleksi elektronik.jpeg" alt="koleksi elektronik" height="200" width="253">
+            <p>Lengkapi peralatan elektronik anda dengan kualitas terbaik.</p>
+            <button type="button">Lebih Lanjut</button>
+        </div>
+        <div class="kontainer">
+            <h3 align="center">Peralatan Dapur</h3>
+            <img src="peralatan dapur.jpeg" alt="peralatan dapur" height="200" width="255">
+            <p>lengkapi koleksi di dapur anda dengan perabotan vintage berkualitas.</p>
+            <button type="button">Lebih Lanjut</button>
+        </div>
+        <div class="kontainer">
+            <h3 align="center">Perhiasan</h3>
+            <img src="perhiasan.jpeg" alt="perhiasan" height="200" width="255">
+            <p>Percantik penampilan anda dengan perhiasan vintage terbaik.</p>
+            <button type="button">Lebih Lanjut</button>
+        </div>
+    </section>
+
+    <section id="produk">
+        <h2>Produk yang Tersedia</h2>
+        <ul id="product-list"> <!-- Tambahkan id pada ul -->
+            <li>
+                <img src="dress 40s.jpeg" alt="Dress 40s" height="100" width="75">
+                <h3 class="product-name">Dress 40s </h3> <!-- Tambahkan class pada h3 -->
+                <p>Rp 150.000</p>
+                <button type="button" onclick="addToCart('Dress 40s', 150000)">Masukkan Keranjang</button>
+            </li>
+            <li>
+                <img src="vintage_watch.jpeg" alt="Vintage Watch 1950" height="100" width="75">
+                <h3 class="product-name">Vintage Watch 1950</h3> <!-- Tambahkan class pada h3 -->
+                <p>Rp 2.500.000</p>
+                <button type="button" onclick="addToCart('Vintage Watch 1950', 2500000)">Masukkan Keranjang</button>
+            </li>
+            <li>
+                <img src="typewriter.jpeg" alt="Typewriter" height="100" width="75">
+                <h3 class="product-name">Typewriter</h3> <!-- Tambahkan class pada h3 -->
+                <p>Rp 1.000.000</p>
+                <button type="button" onclick="addToCart('Typewriter', 1000000)">Masukkan Keranjang</button>
+            </li>
+            <li>
+                <img src="korset.jpeg" alt="Korset Victorian" height="100" width="75">
+                <h3 class="product-name">Korset Victorian</h3> <!-- Tambahkan class pada h3 -->
+                <p>Rp 250.000</p>
+                <button type="button"onclick="addToCart('Korset Victorian', 250000)">Masukkan Keranjang</button>
+            </li>
+            <li>
+                <img src="nikon_1960.jpeg" alt="Nikon 1960" height="100" width="75">
+                <h3 class="product-name">Nikon 1960</h3> <!-- Tambahkan class pada h3 -->
+                <p>Rp 1.000.000</p>
+                <button type="button"onclick="addToCart('nikon_1960', 1000000)">Masukkan Keranjang</button>
+            </li>
+            <li>
+                <img src="record_player.jpeg" alt="Record Player" height="100" width="75">
+                <h3 class="product-name">Record Player</h3> <!-- Tambahkan class pada h3 -->
+                <p>Rp 800.000</p>
+                <button type="button"onclick="addToCart('record_player', 800000)">Masukkan Keranjang</button>
+            </li>
+            <li>
+                <img src="pistol.jpeg" alt="Pistol Antik" height="100" width="75">
+                <h3 class="product-name">Pistol Antik</h3> <!-- Tambahkan class pada h3 -->
+                <p>Rp 5.000.000</p>
+                <button type="button"onclick="addToCart('pistol', 5000000)">Masukkan Keranjang</button>
+            </li>
+            <li>
+                <img src="buku_antique.jpeg" alt="Buku Antique" height="100" width="75">
+                <h3 class="product-name">Buku Antique</h3> <!-- Tambahkan class pada h3 -->
+                <p>Rp 100.000</p>
+                <button type="button"onclick="addToCart('buku_antique', 100000)">Masukkan Keranjang</button>
+            </li>
+            <li>
+                <img src="kamera_antique.jpeg" alt="Kamera Antique" height="100" width="75">
+                <h3 class="product-name">Kamera Antique</h3> <!-- Tambahkan class pada h3 -->
+                <p>Rp 1.500.000</p>
+                <button type="button"onclick="addToCart('kamera_antique', 1500000)">Masukkan Keranjang</button>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Keranjang Modal -->
+    <div id="cart-modal">
+        <div style="background-color: white; padding: 20px; border-radius: 10px;">
+            <h2>Keranjang Belanja</h2>
+            <ul id="cart-items"></ul>
+            <div class="cart-summary">
+                <strong>Total:</strong> <span id="cart-total">Rp 0</span>
+            </div>
+            <button onclick="closeCart()">Tutup</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(productName, productPrice) {
+            const product = {
+                name: productName,
+                price: productPrice
+            };
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${productName} telah ditambahkan ke keranjang!`);
+            showCart(); // Tampilkan keranjang setelah menambahkan produk
+        }
+
+        function showCart() {
+            const cartModal = document.getElementById('cart-modal');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            // Kosongkan daftar keranjang
+            cartItems.innerHTML = '';
+
+            let total = 0;
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - Rp ${item.price}`;
+                cartItems.appendChild(li);
+                total += item.price;
+            });
+
+            cartTotal.textContent = `Rp ${total}`;
+            cartModal.style.display = 'flex';
+        }
+
+        function closeCart() {
+            const cartModal = document.getElementById('cart-modal');
+            cartModal.style.display = 'none';
+        }
+    </script>
+     <script>
+        // Fungsi untuk mencari produk
+        function searchProduct() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase(); // Ambil nilai dari input pencarian
+            const products = document.querySelectorAll('.product-name'); // Ambil semua elemen dengan class 'product-name'
+            let found = false;
+
+            // Loop melalui semua produk
+            products.forEach(product => {
+                // Jika nama produk mengandung input pencarian
+                if (product.textContent.toLowerCase().includes(searchInput)) {
+                    product.parentElement.style.display = 'block'; // Tampilkan produk
+                    found = true; // Set found ke true jika ada produk yang cocok
+                } else {
+                    product.parentElement.style.display = 'none'; // Sembunyikan produk
+                }
+            });
+
+            // Jika tidak ada produk yang ditemukan
+            if (!found) {
+                alert('Produk tidak ditemukan'); // Tampilkan pesan jika tidak ada produk yang cocok
+            }
+        }
+
+        // Tambahkan event listener untuk tombol cari
+        document.querySelector('button[type="cari"]').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah pengiriman form
+            searchProduct(); // Panggil fungsi pencarian
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang</title>
+    <link rel="stylesheet" href="styles.css"> <!-- link ke stylesheet -->
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9e8d6;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+        }
+
+        .cart-container {
+            background-color: #fff;
+            padding: 2em;
+            margin-bottom: 2em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 800px;
+            border-radius: 10px;
+        }
+
+        .cart-container h2 {
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cart-container button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .cart-item-info {
+            margin-left: 20px;
+        }
+
+        .cart-item-info h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cart-item-info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .cart-item-quantity {
+            margin-left: 20px;
+        }
+
+        .cart-item-quantity input[type="number"] {
+            width: 50px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .cart-item-remove {
+            margin-left: 20px;
+        }
+
+        .cart-item-remove button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .cart-summary {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .cart-summary h3 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .cart-summary p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .cart-actions {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .cart-actions button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 align="center"> Keranjang</h1>
+    </header>
+    <main>
+        <section class="cart-container">
+            <h2> Keranjang Anda</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produk</th>
+                        <th>Jumlah</th>
+                        <th>Harga</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- isi keranjang akan dimasukkan di sini -->
+                </tbody>
+            </table>
+            <div class="cart-summary">
+                <h3>Ringkasan Keranjang</h3>
+                <p>Subtotal: Rp. </p>
+                <p>Tax (5%): Rp.</p>
+                <p>Total: Rp.</p>
+            </div>
+            <div class="cart-actions">
+                <button>Update Keranjang</button>
+                <button>Checkout</button>
+            </div>
+        </section>
+    </main>
+    <script>
+    function loadCart() {
+        const tbody = document.querySelector("tbody");
+        tbody.innerHTML = ""; // Kosongkan isi tbody
+
+        let subtotal = 0;
+
+        // Ambil produk dari localStorage
+        const products = JSON.parse(localStorage.getItem("cart")) || []; // Ambil produk yang ada di localStorage
+
+        products.forEach((product, index) => {
+            const row = document.createElement("tr");
+
+            // Menambahkan gambar produk dan nama
+            row.innerHTML = `
+                <td>
+                    <img src="${product.image}" alt="Gambar Produk">
+                    <p>${product.name}</p>
+                </td>
+                <td>
+                    <input type="number" value="${product.quantity}" min="1" onchange="updateQuantity(${index}, this.value)">
+                </td>
+                <td>Rp. ${product.price.toLocaleString()}</td>
+                <td>Rp. ${(product.price * product.quantity).toLocaleString()}</td>
+                <td>
+                    <button onclick="removeFromCart(${index})">Hapus</button>
+                </td>
+            `;
+
+            tbody.appendChild(row);
+            subtotal += product.price * product.quantity; // Hitung subtotal
+        });
+
+        updateSummary(subtotal);
+    }
+
+    function updateQuantity(index, quantity) {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart[index].quantity = parseInt(quantity); // Ubah jumlah produk
+        localStorage.setItem("cart", JSON.stringify(cart)); // Simpan ke localStorage
+        loadCart(); // Muat ulang keranjang untuk memperbarui tampilan
+    }
+
+    function removeFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.splice(index, 1); // Hapus produk dari keranjang
+        localStorage.setItem("cart", JSON.stringify(cart)); // Simpan kembali ke localStorage
+        loadCart(); // Muat ulang keranjang untuk memperbarui tampilan
+    }
+
+    function updateSummary(subtotal) {
+        const tax = subtotal * 0.05; // Hitung pajak 5%
+        const total = subtotal + tax;
+
+        // Tampilkan subtotal, pajak, dan total di keranjang
+        document.querySelector(".cart-summary p:nth-child(1)").textContent = `Subtotal: Rp. ${subtotal.toLocaleString()}`;
+        document.querySelector(".cart-summary p:nth-child(2)").textContent = `Tax (5%): Rp. ${tax.toLocaleString()}`;
+        document.querySelector(".cart-summary p:nth-child(3)").textContent = `Total: Rp. ${total.toLocaleString()}`;
+    }
+
+    // Panggil fungsi loadCart saat halaman dimuat
+    document.addEventListener("DOMContentLoaded", loadCart);
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vintagee.com</title>
+
+  <!-- Link Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body style="font-family: 'Trebuchet MS', Arial, sans-serif; background-color: rgb(234, 222, 200); padding-top: 85px;">
+  <!-- Header -->
+  <header class="d-flex justify-content-between align-items-center p-3" style="background-color: #755A4A; color: #fff; position: fixed; top: 0; width: 100%; transition: top 0.5s ease; z-index: 1000;">
+    <a href="#home" class="navbar-brand h1 mb-0 text-white" style="font-family: 'Great Vibes', cursive; font-size: 50px;">Vintagee.</a>
+    <nav>
+      <a href="#products" class="text-white mx-2">Produk</a>
+      <a href="#komunitas" class="text-white mx-2">Komunitas</a>
+      <a href="#aboutus" class="text-white mx-2">Tentang Kami</a>
+      <a href="#blog" class="text-white mx-2">Blog</a>
+      <a href="#login" class="login-icon text-white mx-2"><i class="fas fa-user"></i></a>
+    </nav>
+  </header>
+  
+  <!-- Banner -->
+  <section class="banner d-flex flex-column justify-content-center align-items-center text-center" style="background-image: url('headerberanda.png'); background-size: cover; background-position: center; height: 190px; color: white; text-align: center; padding: 100px 20px;">
+    <h1>Temukan Koleksi Antik Terbaik</h1>
+    <p>“Dapatkan sentuhan nostalgia dengan koleksi vintage kami"</p>
+  </section>
+
+  <!-- Produk -->
+  <section id="products" class="py-5 text-center">
+    <h2 class="mb-4">Koleksi Vintage & Retro</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card product-item" style="transition: transform 0.2s;">
+            <img src="pakaian dan aksesoris.jpeg" class="card-img-top" alt="pakaian dan aksesoris">
+            <div class="card-body">
+              <h5 class="card-title">Pakaian dan Aksesoris</h5>
+              <p class="card-text">Lengkapi penampilanmu dengan pakaian dan aksesoris vintage terbaik.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card product-item" style="transition: transform 0.2s;">
+            <img src="perabotan 2.jpeg" class="card-img-top" alt="perabotan">
+            <div class="card-body">
+              <h5 class="card-title">Perabotan</h5>
+              <p class="card-text">Percantik rumah anda dengan perabotan vintage berkualitas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card product-item" style="transition: transform 0.2s;">
+            <img src="koleksi musik.jpeg" class="card-img-top" alt="koleksi musik">
+            <div class="card-body">
+              <h5 class="card-title">Koleksi Musik</h5>
+              <p class="card-text">Lengkapi peralatan musik anda dengan koleksi-koleksi terbaik.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Komunitas -->
+  <div class="komunitas text-left" style="background-image: url('komunitas.jpg'); background-size: cover; background-position: center; height: 350px; display: flex; justify-content: flex-start; align-items: flex-end; padding: 20px; margin: 75px 0; filter: brightness(0.7); transition: transform 0.3s ease, filter 0.3s ease;">
+    <a href="komunitas.html" class="cta-link" style="color: white; font-size: 36px; font-weight: bold; text-decoration: none;">Komunitas Vintagees</a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-center text-white py-4">
+    <h1 class="h4 font-weight-bold">Retro & Vintage</h1>
+    <p>Vintagee menawarkan Anda barang-barang vintage dan retro melalui komunitas kami yang akan membawa Anda kembali ke masa lalu dengan penuh gaya.</p>
+  </footer>
+
+  <!-- Link Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Custom Script -->
+  <script>
+    let lastScrollPosition = 0;
+    const header = document.querySelector('header');
+    const headerHeight = header.offsetHeight;
+
+    window.addEventListener('scroll', () => {
+      let currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScrollPosition > lastScrollPosition) {
+        header.style.top = `-${headerHeight}px`;
+      } else {
+        header.style.top = '0';
+      }
+      
+      lastScrollPosition = currentScrollPosition <= 0 ? 0 : currentScrollPosition;
+    });
+  </script>
+</body>
+</html>

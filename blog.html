@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Blog</title>
+    <link rel="stylesheet" href="styles.css"> <!-- link to your stylesheet -->
+    <style>
+        /* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: rgb(224, 211, 197);
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em;
+}
+
+.blog-container {
+  background-color: #fff;
+  padding: 2em;
+  margin-bottom: 2em;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 800px;
+}
+
+.blog-container h2 {
+  margin-top: 0;
+}
+
+.blog-posts {
+  padding: 1em;
+}
+
+article {
+  margin-bottom: 20px;
+}
+
+article h3 {
+  margin-top: 0;
+}
+
+article img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+article p {
+  margin-bottom: 10px;
+}
+
+.blog-sidebar {
+  padding: 1em;
+  border-left: 1px solid #ddd;
+  width: 200px;
+  float: left;
+}
+
+.blog-sidebar h2 {
+  margin-top: 0;
+}
+
+.blog-sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-sidebar li {
+  margin-bottom: 10px;
+}
+
+.blog-sidebar a {
+  text-decoration: none;
+  color: #333;
+}
+
+.blog-sidebar a:hover {
+  color: #444;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+  .blog-container {
+    width: 100%;
+  }
+  .blog-sidebar {
+    float: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-container {
+    padding: 1em;
+  }
+  .blog-posts {
+    padding: 0.5em;
+  }
+  .blog-sidebar {
+    padding: 0.5em;
+  }
+}
+    </style>
+</head>
+<body style="background-color:rgb(224, 211, 197);"></bodystyle>
+    <header>
+        <h1 align="center"> Vintage Blog</h1>
+    </header>
+    <main>
+        <section class="blog-container">
+            <h2>Latest Posts</h2>
+            <div class="blog-posts">
+                <!-- blog posts will be displayed here -->
+                <article>
+                    <h3>Barang Vintage yang Layak Dikoleksi Menjadi Memori Emas</h3>
+                    <img src="vintage blog.jpg" alt="vintage blog" height="400" width="700">
+                    <p>Mengoleksi barang-barang vintage telah menjadi tren yang populer di kalangan pecinta nostalgia dan penggemar warisan budaya. Barang-barang ini tidak hanya memiliki nilai estetika yang unik, tetapi juga mengandung cerita-cerita masa lalu yang memikat. Dari pakaian hingga perabotan rumah tangga, berikut adalah beberapa contoh barang vintage yang layak dikoleksi dan menjadi bagian dari warisan budaya kita. dst..</p>
+                </article>
+                <article>
+                    <h3>Arti Vintage: Lebih dari Sekadar Gaya, namun Merawat Warisan Sejarah</h3>
+                    <img src="furniture vintage.jpg" alt="furniture vintage" height="400" width="700">
+                    <p>Istilah vintage semakin populer dalam beberapa tahun terakhir, baik dalam dunia fashion, desain interior, maupun budaya pop. Vintage bukan hanya merujuk pada sesuatu yang lama atau kuno, tetapi juga membawa nilai historis dan estetika yang khas. dst...</p>
+                </article>
+                <!-- more posts will be displayed here -->
+            </div>
+            <div class="blog-sidebar">
+                <h2>Kategori</h2>
+                <ul>
+                    <li><a href="#">Vintage Fashion</a></li>
+                    <li><a href="#">Vintage Home Decor</a></li>
+                    <li><a href="#">Vintage Collectibles</a></li>
+                </ul>
+
+                <!--INI NTAR BIKIN KOTAK DISAMPING KANAN BIAR JADI 2 COLUMNS trs taro situ, LIAT CONTOH CODINGAN LITDIG-->
+                <h2>Recent Posts</h2>
+                <ul>
+                    <li><a href="#">Post 1</a></li>
+                    <li><a href="#">Post 2</a></li>
+                    <li><a href="#">Post 3</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script> <!-- link to your script file -->
+</body>
+</html>
